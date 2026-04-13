@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Trivy vulnerability scanner in filesystem mode
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@aeb13962e8044961d8758c86772280caa8f179ee
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -30,7 +30,7 @@ jobs:
           docker build -t my-python-app:${{ github.sha }} .
           
       - name: Run Trivy vulnerability scanner in image mode
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@aeb13962e8044961d8758c86772280caa8f179ee
         with:
           image-ref: 'my-python-app:${{ github.sha }}'
           format: 'sarif'
